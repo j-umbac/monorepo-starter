@@ -39,7 +39,9 @@ const table = useTemplateRef("table");
           :loading="status === 'pending'"
           @click="refresh()"
         />
-        <NButton square icon label="i-radix-icons-plus" />
+        <FormPost>
+          <NButton square icon label="i-radix-icons-plus" />
+        </FormPost>
       </div>
     </div>
 
