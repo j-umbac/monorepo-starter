@@ -1,7 +1,7 @@
 {
   "name": "monorepo",
   "version": "1.0.0",
-  "description": "",
+  "description": "- [ ] Create a Post Module\r   - [ ] Create a Post Model\r   - [ ] Create a Post Controller\r   - [ ] Create a Post Service\r   - [ ] Create a Post Endpoint\r - [ ] Deploy to Vercel",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return ['Laravel' => app()->version()];
 });
 
 Route::get('/posts', function () {
+    sleep(1);
+
     return response()->json([
         'posts' => [
             ['id' => 1, 'title' => 'Post 1', 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.', 'uuid' => 'uuid1'],
@@ -24,6 +26,6 @@ Route::get('/posts', function () {
             ['id' => 13, 'title' => 'Post 13', 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.', 'uuid' => 'uuid13'],
             ['id' => 14, 'title' => 'Post 14', 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.', 'uuid' => 'uuid14'],
             ['id' => 15, 'title' => 'Post 15', 'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.', 'uuid' => 'uuid15'],
-        ]
+        ],
     ]);
 });
