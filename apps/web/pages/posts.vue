@@ -1,6 +1,6 @@
 <script setup lang="ts">
  
-const { data } = useFetch<any>('https://jsonplaceholder.typicode.com/posts')
+const { data, status, refresh } = useFetch<any>('http://localhost/posts')
  
 const columns = [
   {
@@ -27,10 +27,22 @@ const table = useTemplateRef('table')
 </script>
  
 <template>
+   <div class="mt-10 mb-4 space-y-6">
+    <div class="flex gap-2 ml-auto">
+      <NButton btn="solid-white" :loading="status === 'pending'"
+        @click="refresh"
+      >
+        Refresh
+      </NButton>
+      <NButton>
+        Ass Post
+      </NButton>
+    </div>
+   </div>
 <NTable
     ref="table"
     :columns
-    :data
+    :data="data.posts"
     enable-sorting
     enable-column-filters
   />

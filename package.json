@@ -13,5 +13,8 @@
     "@iconify-icons/lucide": "^1.2.135",
     "@iconify-icons/radix-icons": "^1.2.9",
     "@iconify-icons/tabler": "^1.2.95"
+  },
+  "dependencies": {
+    "@iconify/json": "^2.2.292"
   }
 }
