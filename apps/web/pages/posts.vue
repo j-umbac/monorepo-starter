@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data, status, refresh } = useFetch<any>("http://localhost:8000/posts");
+const { data, status, refresh } = useFetch<any>("https://jsonplaceholder.typicode.com/posts");
 
 const columns = [
   {
@@ -47,7 +47,7 @@ const table = useTemplateRef("table");
       ref="table"
       :loading="status === 'pending'"
       :columns
-      :data="data.posts"
+      :data="data"
       enable-sorting
       enable-column-filters
     />
