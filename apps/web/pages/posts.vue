@@ -1,0 +1,57 @@
+<script setup lang="ts">
+ 
+const { data } = useFetch<any>('https://jsonplaceholder.typicode.com/posts')
+ 
+const columns = [
+  {
+    header: 'id',
+    accessorKey: 'id',
+  },
+  {
+    header: 'title',
+    accessorKey: 'title',
+  },
+  {
+    header: 'Body',
+    accessorKey: 'body',
+  },
+]
+ 
+ 
+const pagination = ref({
+  pageSize: 5,
+  pageIndex: 0,
+})
+ 
+const table = useTemplateRef('table')
+</script>
+ 
+<template>
+<NTable
+    ref="table"
+    :columns
+    :data
+    enable-sorting
+    enable-column-filters
+  />
+ 
+    <!-- pagination -->
+<div
+      class="flex flex-wrap items-center justify-between gap-4 px-2 mt-5 overflow-auto"
+>
+<div
+        class="flex items-center justify-center text-sm font-medium"
+>
+        Page {{ (table?.getState().pagination.pageIndex ?? 0) + 1 }} of
+        {{ table?.getPageCount().toLocaleString() }}
+</div>
+ 
+      <NPagination
+        :page="(table?.getState().pagination.pageIndex ?? 0) + 1"
+        :total="table?.getFilteredRowModel().rows.length"
+        show-edges
+        :items-per-page="table?.getState().pagination.pageSize"
+        @update:page="table?.setPageIndex($event - 1)"
+      />
+</div>
+</template>
